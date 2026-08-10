@@ -82,4 +82,3 @@ def test_cli_output_is_canonical_json(tmp_path: Path) -> None:
     assert raw.endswith(b"\n")
     assert value["summary"]["effects"] == 4
     assert raw == canonical_bytes(value) + b"\n"
-

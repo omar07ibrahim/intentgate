@@ -98,9 +98,7 @@ def _apply_approval(
         record["rejected_by"] = event.actor
         return _decision(True, "proposal_rejected", "REJECTED")
     record["approvals"][actor.role] = event.actor
-    missing = [
-        role for role in record["required_roles"] if role not in record["approvals"]
-    ]
+    missing = [role for role in record["required_roles"] if role not in record["approvals"]]
     if missing:
         return _decision(True, "approval_recorded", "PENDING", required_roles=missing)
     record["status"] = "READY"
@@ -187,8 +185,7 @@ def summarize(
     records = list(state["proposals"].values())
     effects = state["effects"]
     cross_tenant_effects = sum(
-        principals[effect["executor"]].tenant != effect["tenant"]
-        for effect in effects
+        principals[effect["executor"]].tenant != effect["tenant"] for effect in effects
     )
     return {
         "proposals": len(records),
@@ -199,9 +196,7 @@ def summarize(
         "executed_proposals": sum(record["status"] == "EXECUTED" for record in records),
         "rejected_proposals": sum(record["status"] == "REJECTED" for record in records),
         "expired_proposals": sum(record["status"] == "EXPIRED" for record in records),
-        "pending_proposals": sum(
-            record["status"] in {"PENDING", "READY"} for record in records
-        ),
+        "pending_proposals": sum(record["status"] in {"PENDING", "READY"} for record in records),
         "events": len(entries),
         "accepted_events": sum(entry["decision"]["accepted"] for entry in entries),
         "rejected_events": sum(not entry["decision"]["accepted"] for entry in entries),
@@ -210,8 +205,7 @@ def summarize(
             for entry in entries
         ),
         "effects": len(effects),
-        "duplicate_effects": len(effects)
-        - len({effect["proposal_id"] for effect in effects}),
+        "duplicate_effects": len(effects) - len({effect["proposal_id"] for effect in effects}),
         "cross_tenant_effects": cross_tenant_effects,
     }
 

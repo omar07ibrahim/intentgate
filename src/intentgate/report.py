@@ -103,27 +103,27 @@ footer{{color:var(--muted);padding:14px 4px 32px}} @media(max-width:900px){{main
 <div class="eyebrow">Verified replay · offline artifact</div>
 <h1>IntentGate decision ledger</h1>
 <p>Untrusted model proposals cross a deterministic policy boundary, role-specific human approval, expiry checks, and single-use execution before an effect can be committed.</p>
-<div class="badges"><span class="badge">Scenario: {_escape(artifact['scenario']['name'])}</span><span class="badge">Policy {_escape(_short(artifact['policy_sha256']))}</span><span class="badge">Replay verified</span></div>
+<div class="badges"><span class="badge">Scenario: {_escape(artifact["scenario"]["name"])}</span><span class="badge">Policy {_escape(_short(artifact["policy_sha256"]))}</span><span class="badge">Replay verified</span></div>
 </section>
 <section class="grid">
-<div class="metric"><b>{summary['proposals']}</b><span>bounded proposals</span></div>
-<div class="metric"><b>{summary['effects']}</b><span>committed effects</span></div>
-<div class="metric"><b>{summary['rejected_events']}</b><span>rejected events</span></div>
-<div class="metric"><b>{summary['cross_tenant_effects']}</b><span>cross-tenant effects</span></div>
+<div class="metric"><b>{summary["proposals"]}</b><span>bounded proposals</span></div>
+<div class="metric"><b>{summary["effects"]}</b><span>committed effects</span></div>
+<div class="metric"><b>{summary["rejected_events"]}</b><span>rejected events</span></div>
+<div class="metric"><b>{summary["cross_tenant_effects"]}</b><span>cross-tenant effects</span></div>
 </section>
 <section class="two">
 <div class="card"><h2>Final proposal outcomes</h2>{bars}</div>
 <div class="card"><h2>Receipt chain</h2><div class="hashes">
-<div><span>Scenario</span><code>{_escape(artifact['scenario_sha256'])}</code></div>
-<div><span>Policy</span><code>{_escape(artifact['policy_sha256'])}</code></div>
-<div><span>Ledger root</span><code>{_escape(artifact['ledger_root_sha256'])}</code></div>
-<div><span>Artifact</span><code>{_escape(artifact['artifact_sha256'])}</code></div>
+<div><span>Scenario</span><code>{_escape(artifact["scenario_sha256"])}</code></div>
+<div><span>Policy</span><code>{_escape(artifact["policy_sha256"])}</code></div>
+<div><span>Ledger root</span><code>{_escape(artifact["ledger_root_sha256"])}</code></div>
+<div><span>Artifact</span><code>{_escape(artifact["artifact_sha256"])}</code></div>
 </div></div>
 </section>
 <section class="card"><h2>Proposal disposition</h2><div class="scroll"><table>
 <thead><tr><th>ID</th><th>Action</th><th>Class</th><th>Final state</th><th>Last decision</th><th>Untrusted justification</th></tr></thead>
 <tbody>{proposals_html}</tbody></table></div></section>
-<section class="card" style="margin-top:18px"><h2>Replay ledger · {len(artifact['entries'])} transitions</h2><div class="scroll"><table>
+<section class="card" style="margin-top:18px"><h2>Replay ledger · {len(artifact["entries"])} transitions</h2><div class="scroll"><table>
 <thead><tr><th>#</th><th>Event</th><th>Decision</th><th>Disposition</th><th>Entry SHA-256</th></tr></thead>
 <tbody>{ledger_html}</tbody></table></div></section>
 <footer>Synthetic HR workflow fixture. This report is evidence of deterministic replay for the checked-in scenario, not a claim about model quality, legal compliance, production IAM, or real employee data.</footer>

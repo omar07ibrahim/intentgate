@@ -285,4 +285,3 @@ def parse_scenario(value: Any) -> Scenario:
             raise ContractError(f"events[{index}].at must be non-decreasing")
         previous_at = event.at
     return Scenario(name, principals, events)
-

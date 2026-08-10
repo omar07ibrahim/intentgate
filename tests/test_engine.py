@@ -339,4 +339,3 @@ def test_executed_proposal_cannot_commit_a_second_effect(
     assert artifact["entries"][-1]["decision"]["code"] == "execution_invalid_state"
     assert artifact["summary"]["effects"] == 1
     assert artifact["summary"]["duplicate_effects"] == 0
-

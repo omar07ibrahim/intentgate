@@ -136,4 +136,3 @@ def test_report_atomic_write_and_collision(
         write_report(blocked, artifact)
     assert not temporary.exists()
     assert not blocked.exists()
-
