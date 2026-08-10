@@ -160,7 +160,7 @@ def prepare(
         raise ValueError("CLI transcript does not begin with the executed run command")
     if artifact["artifact_sha256"] not in cli:
         raise ValueError("CLI transcript does not expose the artifact digest")
-    if f"verified {summary["events"]} transitions, {summary["effects"]} effects" not in cli:
+    if f"verified {summary['events']} transitions, {summary['effects']} effects" not in cli:
         raise ValueError("CLI transcript does not contain verified replay output")
 
     (evidence / "intentgate-run.json").write_bytes(artifact_path.read_bytes())
@@ -437,7 +437,7 @@ def _architecture_svg(artifact: dict[str, Any]) -> str:
         ("02", "STRICT CONTRACT", "Types, size, time, one effect"),
         ("03", "POLICY GATE", "Action + classification matrix"),
         ("04", "HUMAN QUORUM", "Manager / privacy as required"),
-        ("05", "EXECUTION", f"{summary["effects"]} certified effects"),
+        ("05", "EXECUTION", f"{summary['effects']} certified effects"),
     )
     boxes = "".join(
         f"""<g transform="translate({55 + index * 225} 180)">
