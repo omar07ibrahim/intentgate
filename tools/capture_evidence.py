@@ -220,7 +220,7 @@ def capture(output_root: Path, container_image: str) -> None:
         demo = browser.new_page(viewport={"width": 1120, "height": 820}, device_scale_factor=1)
         demo.goto(report.as_uri(), wait_until="load")
         frames = [demo.screenshot(animations="disabled")]
-        demo.get_by_role("heading", name="Final proposal outcomes").scroll_into_view_if_needed()
+        demo.get_by_role("heading", name="Proposal disposition").scroll_into_view_if_needed()
         frames.append(demo.screenshot(animations="disabled"))
         demo.locator("h2").filter(has_text="Replay ledger").scroll_into_view_if_needed()
         frames.append(demo.screenshot(animations="disabled"))
