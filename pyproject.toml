@@ -25,9 +25,9 @@ classifiers = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/omar07ibrahim/test#readme"
-Issues = "https://github.com/omar07ibrahim/test/issues"
-Repository = "https://github.com/omar07ibrahim/test"
+Documentation = "https://github.com/omar07ibrahim/intentgate#readme"
+Issues = "https://github.com/omar07ibrahim/intentgate/issues"
+Repository = "https://github.com/omar07ibrahim/intentgate"
 
 [project.scripts]
 intentgate = "intentgate.cli:main"
