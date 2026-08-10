@@ -160,7 +160,7 @@ def prepare(
         raise ValueError("CLI transcript does not begin with the executed run command")
     if artifact["artifact_sha256"] not in cli:
         raise ValueError("CLI transcript does not expose the artifact digest")
-    if f"verified {summary['events']} transitions, {summary['effects']} effects" not in cli:
+    if f"verified {summary["events"]} transitions, {summary["effects"]} effects" not in cli:
         raise ValueError("CLI transcript does not contain verified replay output")
 
     (evidence / "intentgate-run.json").write_bytes(artifact_path.read_bytes())
@@ -354,9 +354,7 @@ def verify(
     if not isinstance(artifact, dict):
         raise ValueError("evidence artifact must be an object")
     summary = verify_artifact(artifact)
-    if (evidence / "intentgate-report.html").read_text(encoding="utf-8") != render_report(
-        artifact
-    ):
+    if (evidence / "intentgate-report.html").read_text(encoding="utf-8") != render_report(artifact):
         raise ValueError("checked-in report does not replay")
     if manifest["result"] != _result(summary):
         raise ValueError("manifest result does not match the replay")
@@ -399,9 +397,7 @@ def verify_visuals(output_root: Path) -> None:
     with Image.open(evidence / "intentgate-demo.gif") as image:
         frames = list(ImageSequence.Iterator(image))
         if image.format != "GIF" or image.size != (1120, 820) or len(frames) != 3:
-            raise ValueError(
-                f"unexpected GIF contract: {image.format} {image.size} {len(frames)}"
-            )
+            raise ValueError(f"unexpected GIF contract: {image.format} {image.size} {len(frames)}")
         for index, frame in enumerate(frames):
             _reject_blank_image(frame, f"intentgate-demo.gif frame {index}")
 
@@ -441,15 +437,15 @@ def _architecture_svg(artifact: dict[str, Any]) -> str:
         ("02", "STRICT CONTRACT", "Types, size, time, one effect"),
         ("03", "POLICY GATE", "Action + classification matrix"),
         ("04", "HUMAN QUORUM", "Manager / privacy as required"),
-        ("05", "EXECUTION", f"{summary['effects']} certified effects"),
+        ("05", "EXECUTION", f"{summary["effects"]} certified effects"),
     )
     boxes = "".join(
         f"""<g transform="translate({55 + index * 225} 180)">
-<rect width="190" height="190" rx="24" fill="#13283f" stroke="{'#e85d75' if index == 0 else '#35c2ba'}" stroke-width="2"/>
+<rect width="190" height="190" rx="24" fill="#13283f" stroke="{"#e85d75" if index == 0 else "#35c2ba"}" stroke-width="2"/>
 <text x="20" y="34" fill="#7ee7df" font-size="13" font-weight="700">{number}</text>
 <text x="20" y="76" fill="#ffffff" font-size="15" font-weight="800">{title}</text>
-<text x="20" y="112" fill="#b9c9d8" font-size="12">{detail.split(' + ')[0]}</text>
-<text x="20" y="134" fill="#b9c9d8" font-size="12">{detail.split(' + ')[1] if ' + ' in detail else ''}</text>
+<text x="20" y="112" fill="#b9c9d8" font-size="12">{detail.split(" + ")[0]}</text>
+<text x="20" y="134" fill="#b9c9d8" font-size="12">{detail.split(" + ")[1] if " + " in detail else ""}</text>
 </g>"""
         for index, (number, title, detail) in enumerate(labels)
     )
@@ -463,7 +459,7 @@ def _architecture_svg(artifact: dict[str, Any]) -> str:
 <text x="55" y="65" fill="#7ee7df" font-size="14" font-weight="800" letter-spacing="2">INTENTGATE / VERIFIED WORKFLOW</text>
 <text x="55" y="110" fill="#ffffff" font-size="32" font-weight="800">Authority is earned at deterministic boundaries</text>
 {boxes}{arrows}
-<text x="55" y="430" fill="#91a9bc" font-size="13">Policy {artifact['policy_sha256'][:16]}…  ·  Ledger {artifact['ledger_root_sha256'][:16]}…  ·  Independent replay verified</text>
+<text x="55" y="430" fill="#91a9bc" font-size="13">Policy {artifact["policy_sha256"][:16]}…  ·  Ledger {artifact["ledger_root_sha256"][:16]}…  ·  Independent replay verified</text>
 <text x="55" y="465" fill="#d7e5ee" font-size="14">The model proposes. The gate decides. Humans authorize. The executor commits once.</text>
 </svg>
 """
@@ -482,12 +478,12 @@ def _trust_boundary_svg(artifact: dict[str, Any]) -> str:
 <rect x="450" y="100" width="300" height="370" rx="24" fill="#102d4b"/>
 <text x="480" y="150" fill="#7ee7df" font-size="18" font-weight="800">DETERMINISTIC GATE</text>
 <text x="480" y="200" fill="#ffffff" font-size="15">Exact schema + bounds</text><text x="480" y="235" fill="#ffffff" font-size="15">Policy matrix + TTL</text><text x="480" y="270" fill="#ffffff" font-size="15">Role-specific quorum</text><text x="480" y="305" fill="#ffffff" font-size="15">Tenant isolation</text><text x="480" y="340" fill="#ffffff" font-size="15">Nonce replay defense</text><text x="480" y="375" fill="#ffffff" font-size="15">Hash-chained receipt</text>
-<text x="480" y="425" fill="#7ee7df" font-size="14" font-weight="700">{summary['rejected_events']} events rejected safely</text>
+<text x="480" y="425" fill="#7ee7df" font-size="14" font-weight="700">{summary["rejected_events"]} events rejected safely</text>
 <path d="M750 285H840" stroke="#16947e" stroke-width="4"/><path d="M825 272L845 285L825 298Z" fill="#16947e"/>
 <rect x="845" y="120" width="300" height="330" rx="24" fill="#e9f8f3" stroke="#16947e" stroke-width="2"/>
 <text x="875" y="165" fill="#086a59" font-size="18" font-weight="800">CERTIFIED EFFECTS</text>
-<text x="875" y="220" fill="#17483f" font-size="48" font-weight="800">{summary['effects']}</text><text x="935" y="215" fill="#477269" font-size="15">effects</text>
-<text x="875" y="280" fill="#17483f" font-size="15">duplicate effects: {summary['duplicate_effects']}</text><text x="875" y="315" fill="#17483f" font-size="15">cross-tenant effects: {summary['cross_tenant_effects']}</text>
+<text x="875" y="220" fill="#17483f" font-size="48" font-weight="800">{summary["effects"]}</text><text x="935" y="215" fill="#477269" font-size="15">effects</text>
+<text x="875" y="280" fill="#17483f" font-size="15">duplicate effects: {summary["duplicate_effects"]}</text><text x="875" y="315" fill="#17483f" font-size="15">cross-tenant effects: {summary["cross_tenant_effects"]}</text>
 <text x="875" y="385" fill="#086a59" font-size="14" font-weight="700">Replay independently verified</text>
 </svg>
 """
@@ -504,10 +500,10 @@ def _state_machine_svg(artifact: dict[str, Any]) -> str:
 <rect x="70" y="210" width="180" height="90" rx="45" fill="#dce8f5"/><text x="160" y="264" fill="#183a5c" font-size="18" font-weight="800">PROPOSED</text>
 <rect x="345" y="145" width="180" height="90" rx="45" fill="#fff0d4"/><text x="435" y="199" fill="#8b5400" font-size="18" font-weight="800">PENDING</text>
 <rect x="620" y="145" width="180" height="90" rx="45" fill="#dff3ef"/><text x="710" y="199" fill="#0c6d5b" font-size="18" font-weight="800">READY</text>
-<rect x="895" y="145" width="210" height="90" rx="45" fill="#d9f4e7"/><text x="1000" y="199" fill="#096643" font-size="18" font-weight="800">EXECUTED · {summary['executed_proposals']}</text>
-<rect x="345" y="365" width="180" height="90" rx="45" fill="#ffe1e4"/><text x="435" y="419" fill="#9f2635" font-size="18" font-weight="800">BLOCKED · {summary['blocked_proposals']}</text>
-<rect x="620" y="365" width="180" height="90" rx="45" fill="#ffe1e4"/><text x="710" y="419" fill="#9f2635" font-size="18" font-weight="800">REJECTED · {summary['rejected_proposals']}</text>
-<rect x="895" y="365" width="210" height="90" rx="45" fill="#fff0d4"/><text x="1000" y="419" fill="#8b5400" font-size="18" font-weight="800">EXPIRED · {summary['expired_proposals']}</text>
+<rect x="895" y="145" width="210" height="90" rx="45" fill="#d9f4e7"/><text x="1000" y="199" fill="#096643" font-size="18" font-weight="800">EXECUTED · {summary["executed_proposals"]}</text>
+<rect x="345" y="365" width="180" height="90" rx="45" fill="#ffe1e4"/><text x="435" y="419" fill="#9f2635" font-size="18" font-weight="800">BLOCKED · {summary["blocked_proposals"]}</text>
+<rect x="620" y="365" width="180" height="90" rx="45" fill="#ffe1e4"/><text x="710" y="419" fill="#9f2635" font-size="18" font-weight="800">REJECTED · {summary["rejected_proposals"]}</text>
+<rect x="895" y="365" width="210" height="90" rx="45" fill="#fff0d4"/><text x="1000" y="419" fill="#8b5400" font-size="18" font-weight="800">EXPIRED · {summary["expired_proposals"]}</text>
 </g>
 <g stroke="#54718d" stroke-width="3" fill="none" marker-end="url(#a)"><path d="M250 240L345 200"/><path d="M525 190H620"/><path d="M800 190H895"/><path d="M250 275L345 385"/><path d="M525 225L655 365"/><path d="M790 225L960 365"/></g>
 <g fill="#54718d" font-size="12" font-family="system-ui,sans-serif"><text x="275" y="205">admit</text><text x="555" y="175">quorum</text><text x="830" y="175">execute once</text><text x="270" y="340">fail closed</text><text x="555" y="315">human reject</text><text x="845" y="315">TTL exceeded</text></g>
@@ -535,12 +531,12 @@ def _outcome_svg(artifact: dict[str, Any]) -> str:
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560">
 <rect width="1200" height="560" rx="28" fill="#f6f8fb"/>
 <text x="55" y="60" fill="#102d4b" font-size="32" font-weight="800">Verified fixture outcomes</text>
-<text x="55" y="95" fill="#61758a" font-size="14">Synthetic HR adversarial workflow · {summary['proposals']} proposals · {summary['events']} transitions</text>
+<text x="55" y="95" fill="#61758a" font-size="14">Synthetic HR adversarial workflow · {summary["proposals"]} proposals · {summary["events"]} transitions</text>
 {bars}
 <rect x="1010" y="145" width="135" height="250" rx="22" fill="#102d4b"/>
 <text x="1077" y="190" text-anchor="middle" fill="#7ee7df" font-size="12" font-weight="800">EVENTS</text>
-<text x="1077" y="250" text-anchor="middle" fill="#ffffff" font-size="38" font-weight="800">{summary['accepted_events']}</text><text x="1077" y="275" text-anchor="middle" fill="#b8cada" font-size="12">accepted</text>
-<text x="1077" y="335" text-anchor="middle" fill="#ff9aaa" font-size="38" font-weight="800">{summary['rejected_events']}</text><text x="1077" y="360" text-anchor="middle" fill="#b8cada" font-size="12">rejected</text>
+<text x="1077" y="250" text-anchor="middle" fill="#ffffff" font-size="38" font-weight="800">{summary["accepted_events"]}</text><text x="1077" y="275" text-anchor="middle" fill="#b8cada" font-size="12">accepted</text>
+<text x="1077" y="335" text-anchor="middle" fill="#ff9aaa" font-size="38" font-weight="800">{summary["rejected_events"]}</text><text x="1077" y="360" text-anchor="middle" fill="#b8cada" font-size="12">rejected</text>
 <text x="55" y="500" fill="#61758a" font-size="13">Measured from the checked-in deterministic fixture; no model-quality or production-compliance claim.</text>
 </svg>
 """
