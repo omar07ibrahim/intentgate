@@ -10,5 +10,5 @@ build/
 dist/
 .venv/
 .env
-intentgate-run.json
-intentgate-report.html
+/intentgate-run.json
+/intentgate-report.html
