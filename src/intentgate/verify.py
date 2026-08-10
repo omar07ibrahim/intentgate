@@ -335,11 +335,12 @@ def _verify(value: Any) -> dict[str, int]:
             "after_state_sha256": after,
             "previous_entry_sha256": previous,
         }
-        expected = {**payload, "entry_sha256": sha256_data(payload)}
+        entry_sha256 = sha256_data(payload)
+        expected = {**payload, "entry_sha256": entry_sha256}
         if actual != expected:
             raise VerificationError(f"ledger entry {index} replay mismatch")
         replayed_entries.append(expected)
-        previous = expected["entry_sha256"]
+        previous = entry_sha256
     if value["effects"] != state["effects"]:
         raise VerificationError("effect list mismatch")
     summary = _reference_summary(state, replayed_entries, principals)

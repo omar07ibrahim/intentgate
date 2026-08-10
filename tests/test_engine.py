@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import copy
-from typing import Any
+from typing import Any, cast
 
 import pytest
 
@@ -54,7 +54,7 @@ def _proposal(
     classification: str = "internal",
     resource: str = "leave:case",
 ) -> dict[str, Any]:
-    event = copy.deepcopy(scenario_data["events"][0])
+    event = cast(dict[str, Any], copy.deepcopy(scenario_data["events"][0]))
     event["proposal"]["proposal_id"] = proposal_id
     event["proposal"]["action"] = action
     event["proposal"]["classification"] = classification
