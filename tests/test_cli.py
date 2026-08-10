@@ -6,6 +6,7 @@ from typing import Any, cast
 
 import pytest
 
+from intentgate.canonical import canonical_bytes
 from intentgate.cli import main
 
 
@@ -80,4 +81,5 @@ def test_cli_output_is_canonical_json(tmp_path: Path) -> None:
     value = cast(dict[str, Any], json.loads(raw))
     assert raw.endswith(b"\n")
     assert value["summary"]["effects"] == 4
-    assert b" " not in raw
+    assert raw == canonical_bytes(value) + b"\n"
+

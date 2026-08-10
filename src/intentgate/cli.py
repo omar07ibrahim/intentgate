@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import argparse
-import json
 import sys
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Any, Sequence
+from typing import Any
 
 from .canonical import (
     MAX_ARTIFACT_BYTES,
@@ -130,3 +130,4 @@ def main(argv: Sequence[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

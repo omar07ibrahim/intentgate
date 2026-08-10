@@ -79,22 +79,22 @@ def test_independent_verifier_rejects_tampering(
 def test_verifier_normalizes_unexpected_contract_errors() -> None:
     with pytest.raises(VerificationError, match="artifact must be an object"):
         verify_artifact([])
+    value = {
+        "format": "intentgate.run.v1",
+        "scenario": [],
+        "scenario_sha256": "0" * 64,
+        "policy": {},
+        "policy_sha256": "0" * 64,
+        "entries": [],
+        "effects": [],
+        "summary": {},
+        "final_state_sha256": "0" * 64,
+        "ledger_root_sha256": "0" * 64,
+        "artifact_sha256": "0" * 64,
+    }
+    _resign(value)
     with pytest.raises(VerificationError, match="violates the replay contract"):
-        verify_artifact(
-            {
-                "format": "intentgate.run.v1",
-                "scenario": [],
-                "scenario_sha256": "0" * 64,
-                "policy": {},
-                "policy_sha256": "0" * 64,
-                "entries": [],
-                "effects": [],
-                "summary": {},
-                "final_state_sha256": "0" * 64,
-                "ledger_root_sha256": "0" * 64,
-                "artifact_sha256": "0" * 64,
-            }
-        )
+        verify_artifact(value)
 
 
 def test_report_is_verified_self_contained_and_escaped(
@@ -111,7 +111,7 @@ def test_report_is_verified_self_contained_and_escaped(
     assert "@media(max-width:520px)" in report
     assert artifact["artifact_sha256"] in report
     assert artifact["ledger_root_sha256"] in report
-    assert report.count("<tr>") == 39
+    assert report.count("<tr>") == 40
 
 
 def test_report_refuses_unverified_input(artifact: dict[str, Any]) -> None:
@@ -136,3 +136,4 @@ def test_report_atomic_write_and_collision(
         write_report(blocked, artifact)
     assert not temporary.exists()
     assert not blocked.exists()
+

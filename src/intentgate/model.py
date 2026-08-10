@@ -196,8 +196,12 @@ def _proposal(value: Any, context: str) -> Proposal:
     classification = _string(data["classification"], f"{context}.classification", pattern=_ID)
     if classification not in _CLASSIFICATIONS:
         raise ContractError(f"{context}.classification is unsupported")
-    issued_at = _integer(data["issued_at"], f"{context}.issued_at", minimum=0, maximum=1_000_000_000)
-    expires_at = _integer(data["expires_at"], f"{context}.expires_at", minimum=0, maximum=1_000_000_000)
+    issued_at = _integer(
+        data["issued_at"], f"{context}.issued_at", minimum=0, maximum=1_000_000_000
+    )
+    expires_at = _integer(
+        data["expires_at"], f"{context}.expires_at", minimum=0, maximum=1_000_000_000
+    )
     if expires_at <= issued_at:
         raise ContractError(f"{context}.expires_at must be greater than issued_at")
     return Proposal(
@@ -208,7 +212,9 @@ def _proposal(value: Any, context: str) -> Proposal:
         subject=_string(data["subject"], f"{context}.subject", pattern=_ID),
         resource=_string(data["resource"], f"{context}.resource", pattern=_ID),
         classification=classification,
-        effect_count=_integer(data["effect_count"], f"{context}.effect_count", minimum=1, maximum=1_000),
+        effect_count=_integer(
+            data["effect_count"], f"{context}.effect_count", minimum=1, maximum=1_000
+        ),
         issued_at=issued_at,
         expires_at=expires_at,
         model_run_sha256=_string(
@@ -262,7 +268,9 @@ def parse_scenario(value: Any) -> Scenario:
     name = _string(data["name"], "scenario.name", maximum=80)
     principals = tuple(
         _principal(item, index)
-        for index, item in enumerate(_array(data["principals"], "scenario.principals", MAX_PRINCIPALS))
+        for index, item in enumerate(
+            _array(data["principals"], "scenario.principals", MAX_PRINCIPALS)
+        )
     )
     principal_ids = [principal.principal_id for principal in principals]
     if len(principal_ids) != len(set(principal_ids)):
@@ -277,3 +285,4 @@ def parse_scenario(value: Any) -> Scenario:
             raise ContractError(f"events[{index}].at must be non-decreasing")
         previous_at = event.at
     return Scenario(name, principals, events)
+

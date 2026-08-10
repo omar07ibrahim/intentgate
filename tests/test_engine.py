@@ -239,17 +239,21 @@ def test_approval_state_and_identity_guards(
         resource="document:public",
     )
     blocked = _proposal(scenario_data, proposal_id="p-blocked")
+    blocked["at"] = 3
+    blocked["proposal"]["issued_at"] = 3
     blocked["proposal"]["actor"] = "model:missing"
     pending = _proposal(scenario_data, proposal_id="p-pending")
+    pending["at"] = 5
+    pending["proposal"]["issued_at"] = 5
     artifact = _run(
         scenario_data,
         [
             public,
             _approval("p-public", "human:maya"),
             blocked,
-            _approval("p-blocked", "human:maya", at=3),
+            _approval("p-blocked", "human:maya", at=4),
             pending,
-            _approval("p-pending", "human:missing", at=4),
+            _approval("p-pending", "human:missing", at=6),
         ],
     )
     assert [entry["decision"]["code"] for entry in artifact["entries"]] == [
@@ -335,3 +339,4 @@ def test_executed_proposal_cannot_commit_a_second_effect(
     assert artifact["entries"][-1]["decision"]["code"] == "execution_invalid_state"
     assert artifact["summary"]["effects"] == 1
     assert artifact["summary"]["duplicate_effects"] == 0
+
