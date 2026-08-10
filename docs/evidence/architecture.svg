@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#07121f"/><stop offset="1" stop-color="#103b4d"/></linearGradient><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#7ee7df"/></marker></defs>
+<rect width="1200" height="540" rx="28" fill="url(#bg)"/>
+<text x="55" y="65" fill="#7ee7df" font-size="14" font-weight="800" letter-spacing="2">INTENTGATE / VERIFIED WORKFLOW</text>
+<text x="55" y="110" fill="#ffffff" font-size="32" font-weight="800">Authority is earned at deterministic boundaries</text>
+<g transform="translate(55 180)">
+<rect width="190" height="190" rx="24" fill="#13283f" stroke="#e85d75" stroke-width="2"/>
+<text x="20" y="34" fill="#7ee7df" font-size="13" font-weight="700">01</text>
+<text x="20" y="76" fill="#ffffff" font-size="15" font-weight="800">UNTRUSTED MODEL</text>
+<text x="20" y="112" fill="#b9c9d8" font-size="12">Proposal text</text>
+<text x="20" y="134" fill="#b9c9d8" font-size="12">bounded action</text>
+</g><g transform="translate(280 180)">
+<rect width="190" height="190" rx="24" fill="#13283f" stroke="#35c2ba" stroke-width="2"/>
+<text x="20" y="34" fill="#7ee7df" font-size="13" font-weight="700">02</text>
+<text x="20" y="76" fill="#ffffff" font-size="15" font-weight="800">STRICT CONTRACT</text>
+<text x="20" y="112" fill="#b9c9d8" font-size="12">Types, size, time, one effect</text>
+<text x="20" y="134" fill="#b9c9d8" font-size="12"></text>
+</g><g transform="translate(505 180)">
+<rect width="190" height="190" rx="24" fill="#13283f" stroke="#35c2ba" stroke-width="2"/>
+<text x="20" y="34" fill="#7ee7df" font-size="13" font-weight="700">03</text>
+<text x="20" y="76" fill="#ffffff" font-size="15" font-weight="800">POLICY GATE</text>
+<text x="20" y="112" fill="#b9c9d8" font-size="12">Action</text>
+<text x="20" y="134" fill="#b9c9d8" font-size="12">classification matrix</text>
+</g><g transform="translate(730 180)">
+<rect width="190" height="190" rx="24" fill="#13283f" stroke="#35c2ba" stroke-width="2"/>
+<text x="20" y="34" fill="#7ee7df" font-size="13" font-weight="700">04</text>
+<text x="20" y="76" fill="#ffffff" font-size="15" font-weight="800">HUMAN QUORUM</text>
+<text x="20" y="112" fill="#b9c9d8" font-size="12">Manager / privacy as required</text>
+<text x="20" y="134" fill="#b9c9d8" font-size="12"></text>
+</g><g transform="translate(955 180)">
+<rect width="190" height="190" rx="24" fill="#13283f" stroke="#35c2ba" stroke-width="2"/>
+<text x="20" y="34" fill="#7ee7df" font-size="13" font-weight="700">05</text>
+<text x="20" y="76" fill="#ffffff" font-size="15" font-weight="800">EXECUTION</text>
+<text x="20" y="112" fill="#b9c9d8" font-size="12">4 certified effects</text>
+<text x="20" y="134" fill="#b9c9d8" font-size="12"></text>
+</g><path d="M 245 275 H 275" stroke="#7ee7df" stroke-width="3" marker-end="url(#arrow)"/><path d="M 470 275 H 500" stroke="#7ee7df" stroke-width="3" marker-end="url(#arrow)"/><path d="M 695 275 H 725" stroke="#7ee7df" stroke-width="3" marker-end="url(#arrow)"/><path d="M 920 275 H 950" stroke="#7ee7df" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="55" y="430" fill="#91a9bc" font-size="13">Policy f0133da74d38e85b…  ·  Ledger ac6316c40750e20b…  ·  Independent replay verified</text>
+<text x="55" y="465" fill="#d7e5ee" font-size="14">The model proposes. The gate decides. Humans authorize. The executor commits once.</text>
+</svg>

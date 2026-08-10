@@ -1,0 +1,27 @@
+$ intentgate run scenario.json --output run.json
+IntentGate run complete: 4 effects, 4 blocked proposals, 11 rejected events
+artifact_sha256=06dba310181739ebb8cdaec02828115de8dd757ef3752128db1204dd6604298e
+
+$ intentgate verify run.json
+verified 28 transitions, 4 effects, ledger_root=ac6316c40750e20b8119d7fa53fd2424cbcb6a2dc99500ffd26e208301c8cb15
+
+$ intentgate inspect run.json
+IntentGate verified decision artifact
+scenario: Synthetic HR assistant adversarial workflow
+proposals: 10
+admitted_proposals: 6
+blocked_proposals: 4
+executed_proposals: 4
+rejected_proposals: 1
+expired_proposals: 1
+rejected_events: 11
+effects: 4
+duplicate_effects: 0
+cross_tenant_effects: 0
+scenario_sha256: a84aace36715b61bee6167fc598979bafc21224b9054391a7e94f1de853d47e7
+policy_sha256: f0133da74d38e85b6bddf84bdafb65e3b161e5e0954c61d511955a4392948de4
+ledger_root_sha256: ac6316c40750e20b8119d7fa53fd2424cbcb6a2dc99500ffd26e208301c8cb15
+artifact_sha256: 06dba310181739ebb8cdaec02828115de8dd757ef3752128db1204dd6604298e
+
+$ intentgate report run.json --output report.html
+verified report written to report.html

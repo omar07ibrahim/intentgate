@@ -1,0 +1,248 @@
+{
+  "artifact_sha256": "06dba310181739ebb8cdaec02828115de8dd757ef3752128db1204dd6604298e",
+  "files": [
+    {
+      "bytes": 3480,
+      "media_type": "image/svg+xml",
+      "path": "docs/evidence/architecture.svg",
+      "sha256": "d1c0469e81d9380a39582e53e39795beca1e1b0a49ad9922a0c8793dda5cbc39"
+    },
+    {
+      "bytes": 81045,
+      "dimensions": [
+        1180,
+        650
+      ],
+      "media_type": "image/png",
+      "path": "docs/evidence/intentgate-cli.png",
+      "sha256": "c74a200f4f24a7cc51e0cfba3ca79dde7bb93c59388ba31a349c387b0803cdb2"
+    },
+    {
+      "bytes": 1089,
+      "media_type": "text/plain",
+      "path": "docs/evidence/intentgate-cli.txt",
+      "sha256": "6f4a6aa633d8e2893db2d075eb74578c1e1c87b5b5c70f31f5f74fddb1ff9887"
+    },
+    {
+      "bytes": 255139,
+      "dimensions": [
+        1120,
+        820
+      ],
+      "frames": 3,
+      "media_type": "image/gif",
+      "path": "docs/evidence/intentgate-demo.gif",
+      "sha256": "b8881d28ab03a7c41c55bab4f3d8e2247cf7a24db19f434a2a503706279deecd"
+    },
+    {
+      "bytes": 589458,
+      "dimensions": [
+        1440,
+        2756
+      ],
+      "media_type": "image/png",
+      "path": "docs/evidence/intentgate-report-full.png",
+      "sha256": "385944a4620e278d5d24da6fd8956dd71720043299ca243233e4a6a3ddbf863f"
+    },
+    {
+      "bytes": 160049,
+      "dimensions": [
+        390,
+        844
+      ],
+      "media_type": "image/png",
+      "path": "docs/evidence/intentgate-report-mobile.png",
+      "sha256": "4c1f680a5238bfc333df8d9f2215e606aaf2e5fdf76be1aadd1890893cedc857"
+    },
+    {
+      "bytes": 12074,
+      "media_type": "text/html",
+      "path": "docs/evidence/intentgate-report.html",
+      "sha256": "e9da4bcb435577f48df1526ecddaf861ad1c3f37c3c59a593eb4fb0dafa45e10"
+    },
+    {
+      "bytes": 297359,
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "media_type": "image/png",
+      "path": "docs/evidence/intentgate-report.png",
+      "sha256": "44a5b63426394be75004f6a8533a87b8f0534b2d6cba7cba6598d3791e2ec142"
+    },
+    {
+      "bytes": 31135,
+      "media_type": "application/json",
+      "path": "docs/evidence/intentgate-run.json",
+      "sha256": "45b67b90cf675a1add39f5e4e14e347d23ba276e47a7a6e780d6ba1c85d89681"
+    },
+    {
+      "bytes": 2242,
+      "media_type": "image/svg+xml",
+      "path": "docs/evidence/outcome-funnel.svg",
+      "sha256": "b825a4c8494cc69ebe3723b9a2068678d504eeb300d14542ac2d042fa276f3fd"
+    },
+    {
+      "bytes": 2365,
+      "media_type": "image/svg+xml",
+      "path": "docs/evidence/state-machine.svg",
+      "sha256": "4230f9193d888e5b914fda5579c2a01eda8dbfab3da0f38277b6ffc4bce072c8"
+    },
+    {
+      "bytes": 2443,
+      "media_type": "image/svg+xml",
+      "path": "docs/evidence/trust-boundary.svg",
+      "sha256": "f4d3203bbff2c5573bd20691ad83d4f8fe72473ccce77170eaed0e8fff755ff4"
+    }
+  ],
+  "format": "intentgate.evidence.v1",
+  "generation": {
+    "browser": "Chromium 151.0.7922.34",
+    "container_image": "mcr.microsoft.com/playwright/python@sha256:51d31fdfacb0cff99a1a724152e34ae408d2bd4e7da310ff157450f49261cc59",
+    "implementation": "CPython",
+    "network": "disabled during browser capture",
+    "pillow": "12.3.0",
+    "platform": "linux/amd64",
+    "playwright": "1.62.0",
+    "python": "3.14.6",
+    "viewports": {
+      "demo": [
+        1120,
+        820
+      ],
+      "desktop": [
+        1440,
+        1000
+      ],
+      "mobile": [
+        390,
+        844
+      ],
+      "terminal": [
+        1180,
+        650
+      ]
+    }
+  },
+  "ledger_root_sha256": "ac6316c40750e20b8119d7fa53fd2424cbcb6a2dc99500ffd26e208301c8cb15",
+  "policy_sha256": "f0133da74d38e85b6bddf84bdafb65e3b161e5e0954c61d511955a4392948de4",
+  "result": {
+    "accepted_events": 17,
+    "admitted_proposals": 6,
+    "blocked_proposals": 4,
+    "cross_tenant_effects": 0,
+    "duplicate_effects": 0,
+    "effects": 4,
+    "events": 28,
+    "executed_proposals": 4,
+    "expired_proposals": 1,
+    "proposals": 10,
+    "rejected_events": 11,
+    "rejected_proposals": 1
+  },
+  "scenario_sha256": "a84aace36715b61bee6167fc598979bafc21224b9054391a7e94f1de853d47e7",
+  "source_revision": "f5d1b4c11d741a3c584813cf67432fbb4ee1d0ae",
+  "source_tree": "71e42c4f29e7555998c2d4d62c8fd198eab54389",
+  "sources": [
+    {
+      "bytes": 7650,
+      "path": ".github/workflows/evidence.yml",
+      "sha256": "46600f280460409514d3bcd87d55de618d60c6b01523a0d3f2873ef43fbfdd0e"
+    },
+    {
+      "bytes": 1807,
+      "path": "pyproject.toml",
+      "sha256": "dfdd62d520551fff7cb229061b6794d38795bccaf70831e7a57b9aa1cf4455b5"
+    },
+    {
+      "bytes": 394,
+      "path": "requirements/evidence-browser-image.lock.json",
+      "sha256": "1ba302dec7680863dcc3340ea8a129413c738c66b7f8bb0a4d95421bcf9e4c0f"
+    },
+    {
+      "bytes": 7250,
+      "path": "requirements/evidence-browser.txt",
+      "sha256": "6aa5ee3942f6dc461d35c87a3853c29a5c2a3f86bdb9fe5688bc042fe6cfc782"
+    },
+    {
+      "bytes": 163,
+      "path": "requirements/quality.in",
+      "sha256": "9d8c8b5a81d2da6b4fbfd70beb448579385dea7eff7731993dc1c3a55441b644"
+    },
+    {
+      "bytes": 35224,
+      "path": "requirements/quality.txt",
+      "sha256": "2bb97d6fb7dcd5c0d58fb312883c4708b5016f194a66eac572d9b7acacaa79fa"
+    },
+    {
+      "bytes": 7260,
+      "path": "scenarios/hr-assistant.json",
+      "sha256": "bc70b55a77a179c9a80371984b8d3a10654803f7236d9d48314e988462cc6341"
+    },
+    {
+      "bytes": 29976,
+      "path": "tools/capture_evidence.py",
+      "sha256": "550757569a35cdee94a4ab4d7f39e2d3f9c2db2331e2d0fc075cc79f59653a3b"
+    },
+    {
+      "bytes": 290,
+      "path": "src/intentgate/__init__.py",
+      "sha256": "51bd761123fce3607f2475e5ddb79688ebd7accc13c7f3e1e9d50e461dadcdcf"
+    },
+    {
+      "bytes": 48,
+      "path": "src/intentgate/__main__.py",
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "bytes": 2668,
+      "path": "src/intentgate/canonical.py",
+      "sha256": "d151a34232b8474ffcd3668a89909bc08233a438fe65170b716b784083bdc322"
+    },
+    {
+      "bytes": 4443,
+      "path": "src/intentgate/cli.py",
+      "sha256": "045f728d0e75680de4fe2b26867abb1b8c08958076f852ca0e4f6a0548f9d116"
+    },
+    {
+      "bytes": 9484,
+      "path": "src/intentgate/engine.py",
+      "sha256": "68e0cffe73bbc66b6df7927ab67b26ab6f2d2641f8f1d4d38d498377bbf034b0"
+    },
+    {
+      "bytes": 357,
+      "path": "src/intentgate/errors.py",
+      "sha256": "11ecb71a17f6bd9acbd2d9a0c5d6b65e7f3587477dc4163f0f98b7b6a1b0b3af"
+    },
+    {
+      "bytes": 820,
+      "path": "src/intentgate/ledger.py",
+      "sha256": "6d8d3ba8205507483a0593e0bad9b6d9aeb158efd40a9b7c265b22c49beb0cbf"
+    },
+    {
+      "bytes": 9740,
+      "path": "src/intentgate/model.py",
+      "sha256": "7120ad2a17057c1e10ff73794f339dd0d02e097366537f8ced7f49f12101148b"
+    },
+    {
+      "bytes": 2644,
+      "path": "src/intentgate/policy.py",
+      "sha256": "c9964bd0a4ee10f6b71b252ccc078d3be91492fb2ae1efc488718628f86f56e8"
+    },
+    {
+      "bytes": 8819,
+      "path": "src/intentgate/report.py",
+      "sha256": "53ffd7b1b2b2c79ef73bfff0e1ea8b71a0b65b9c713c182e1bb41f6b07705ff5"
+    },
+    {
+      "bytes": 13981,
+      "path": "src/intentgate/verify.py",
+      "sha256": "d1d7e7d3011334360ccfff3fef587a943a0e0644716041db582273a30de7c9bb"
+    },
+    {
+      "bytes": 0,
+      "path": "src/intentgate/py.typed",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

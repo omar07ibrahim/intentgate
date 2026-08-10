@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560">
+<rect width="1200" height="560" rx="28" fill="#f4f7fb"/>
+<text x="55" y="65" fill="#102d4b" font-size="32" font-weight="800">Trust boundary and fail-closed invariants</text>
+<rect x="55" y="120" width="300" height="330" rx="24" fill="#fff0f2" stroke="#d84a63" stroke-width="2"/>
+<text x="85" y="165" fill="#a51f3b" font-size="18" font-weight="800">UNTRUSTED INPUT</text>
+<text x="85" y="210" fill="#572b35" font-size="15">• model justification</text><text x="85" y="245" fill="#572b35" font-size="15">• requested action</text><text x="85" y="280" fill="#572b35" font-size="15">• tenant + resource</text><text x="85" y="315" fill="#572b35" font-size="15">• prompt-injection text</text>
+<text x="85" y="385" fill="#a51f3b" font-size="14" font-weight="700">Never executed directly</text>
+<path d="M355 285H445" stroke="#d84a63" stroke-width="4"/><path d="M430 272L450 285L430 298Z" fill="#d84a63"/>
+<rect x="450" y="100" width="300" height="370" rx="24" fill="#102d4b"/>
+<text x="480" y="150" fill="#7ee7df" font-size="18" font-weight="800">DETERMINISTIC GATE</text>
+<text x="480" y="200" fill="#ffffff" font-size="15">Exact schema + bounds</text><text x="480" y="235" fill="#ffffff" font-size="15">Policy matrix + TTL</text><text x="480" y="270" fill="#ffffff" font-size="15">Role-specific quorum</text><text x="480" y="305" fill="#ffffff" font-size="15">Tenant isolation</text><text x="480" y="340" fill="#ffffff" font-size="15">Nonce replay defense</text><text x="480" y="375" fill="#ffffff" font-size="15">Hash-chained receipt</text>
+<text x="480" y="425" fill="#7ee7df" font-size="14" font-weight="700">11 events rejected safely</text>
+<path d="M750 285H840" stroke="#16947e" stroke-width="4"/><path d="M825 272L845 285L825 298Z" fill="#16947e"/>
+<rect x="845" y="120" width="300" height="330" rx="24" fill="#e9f8f3" stroke="#16947e" stroke-width="2"/>
+<text x="875" y="165" fill="#086a59" font-size="18" font-weight="800">CERTIFIED EFFECTS</text>
+<text x="875" y="220" fill="#17483f" font-size="48" font-weight="800">4</text><text x="935" y="215" fill="#477269" font-size="15">effects</text>
+<text x="875" y="280" fill="#17483f" font-size="15">duplicate effects: 0</text><text x="875" y="315" fill="#17483f" font-size="15">cross-tenant effects: 0</text>
+<text x="875" y="385" fill="#086a59" font-size="14" font-weight="700">Replay independently verified</text>
+</svg>

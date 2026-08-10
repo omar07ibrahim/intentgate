@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#54718d"/></marker></defs>
+<rect width="1200" height="600" rx="28" fill="#ffffff"/>
+<text x="55" y="60" fill="#102d4b" font-size="32" font-weight="800">Proposal state machine</text>
+<text x="55" y="92" fill="#61758a" font-size="14">Every transition is recorded with before/after state hashes and a chained entry digest.</text>
+<g font-family="system-ui,sans-serif" text-anchor="middle">
+<rect x="70" y="210" width="180" height="90" rx="45" fill="#dce8f5"/><text x="160" y="264" fill="#183a5c" font-size="18" font-weight="800">PROPOSED</text>
+<rect x="345" y="145" width="180" height="90" rx="45" fill="#fff0d4"/><text x="435" y="199" fill="#8b5400" font-size="18" font-weight="800">PENDING</text>
+<rect x="620" y="145" width="180" height="90" rx="45" fill="#dff3ef"/><text x="710" y="199" fill="#0c6d5b" font-size="18" font-weight="800">READY</text>
+<rect x="895" y="145" width="210" height="90" rx="45" fill="#d9f4e7"/><text x="1000" y="199" fill="#096643" font-size="18" font-weight="800">EXECUTED · 4</text>
+<rect x="345" y="365" width="180" height="90" rx="45" fill="#ffe1e4"/><text x="435" y="419" fill="#9f2635" font-size="18" font-weight="800">BLOCKED · 4</text>
+<rect x="620" y="365" width="180" height="90" rx="45" fill="#ffe1e4"/><text x="710" y="419" fill="#9f2635" font-size="18" font-weight="800">REJECTED · 1</text>
+<rect x="895" y="365" width="210" height="90" rx="45" fill="#fff0d4"/><text x="1000" y="419" fill="#8b5400" font-size="18" font-weight="800">EXPIRED · 1</text>
+</g>
+<g stroke="#54718d" stroke-width="3" fill="none" marker-end="url(#a)"><path d="M250 240L345 200"/><path d="M525 190H620"/><path d="M800 190H895"/><path d="M250 275L345 385"/><path d="M525 225L655 365"/><path d="M790 225L960 365"/></g>
+<g fill="#54718d" font-size="12" font-family="system-ui,sans-serif"><text x="275" y="205">admit</text><text x="555" y="175">quorum</text><text x="830" y="175">execute once</text><text x="270" y="340">fail closed</text><text x="555" y="315">human reject</text><text x="845" y="315">TTL exceeded</text></g>
+<text x="55" y="540" fill="#61758a" font-size="13">Terminal states cannot be reopened; nonce reuse and second effects are rejected.</text>
+</svg>
